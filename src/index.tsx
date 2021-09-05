@@ -8,5 +8,5 @@ ReactDOM.render(
   <React.StrictMode>
     <Parent />
   </React.StrictMode>,
-  rootElement
+  rootElement,
 );

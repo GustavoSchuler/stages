@@ -10,4 +10,4 @@ export type Durations = Record<string, number>;
 export interface IStepsData {
   steps: Steps,
   durations: Durations,
-};
+}
