@@ -30,6 +30,11 @@ const Parent: React.FC = () => {
           : null
         ))
       }
+      {
+        loaded === steps.length ?
+        `Total time: ${timer/1000} seconds.`
+        : null
+      }
     </Container>
   );
 };
