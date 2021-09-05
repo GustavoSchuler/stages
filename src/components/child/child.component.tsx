@@ -1,29 +1,37 @@
-import React from 'react';
+// eslint-disable-next-line
+import React, { useState, useEffect } from 'react';
 import { Box, Loader, getTheme } from 'styled-minimal';
-import { steps } from '../../data.json';
+import { IChild } from './child.types';
 
-const Child = ({ key = 'first' }) => {
+const Child: React.FC<IChild> = ({
+  color = 'yellow', duration = 2000, onLoaded
+}: IChild) => {
   const { colors } = getTheme();
+  const [bgColor, setBgColor] = useState('transparent');
 
-  const getStep = () => steps.filter((step) => step.key === key)[0]
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setBgColor(color);
+      onLoaded();
+    }, duration);
 
-  const getColor = () => {
-    const step = getStep();
-
-    return step ? colors[step.value] : '';
-  };
+    return () => clearTimeout(timeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [color, duration]);
 
   return (
     <Box
       alignItems="center"
-      bg="transparent"
-      border={`2px solid ${getColor()}`}
+      bg={bgColor}
+      border={`2px solid ${colors[color]}`}
       borderRadius="8px"
       display="flex"
+      mb={3}
       height={128}
       justifyContent="center"
+      data-testid="child__box"
     >
-      <Loader color={getColor()} size={48} />
+      <Loader color={colors[color]} size={48} data-testid="child__loader" />
     </Box>
   );
 };
