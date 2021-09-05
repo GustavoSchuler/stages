@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Heading } from 'styled-minimal';
+import data from '../../service';
 import './parent.styles.css';
 
 import Child from '../child/child.component';
 
-export default function Parent() {
+const Parent: React.FC = () => {
+  const { steps, durations } = data;
+  const [loaded, setLoaded] = useState(0);
+  const [timer, setTimer] = useState(0);
+
   return (
-    <Container>
+    <Container data-testid="parent">
       <Heading mb={4} textAlign="center">
         Stages
       </Heading>
-      <Child />
+      {
+        steps.map((step, index) => (
+          loaded > index-1 ?
+          <Child
+            key={index}
+            color={step.value}
+            duration={durations[step.key]}
+            onLoaded={() => {
+              setLoaded(index+1);
+              setTimer(timer+durations[step.key]);
+            }}
+          />
+          : null
+        ))
+      }
     </Container>
   );
-}
+};
+
+export default Parent;
