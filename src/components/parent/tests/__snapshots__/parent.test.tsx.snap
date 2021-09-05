@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Component] Parent renders correctly 1`] = `
+<div
+  class="sc-fzoLsD CSqIi"
+  data-testid="parent"
+>
+  <h1
+    class="sc-fzpjYC bGlwZc"
+  >
+    Stages
+  </h1>
+  <div
+    class="sc-AxjAm jVdwCl"
+    data-testid="child__box"
+    display="flex"
+    height="128"
+  >
+    <div
+      class="sc-fzoXWK fcyArp"
+      color="#FFEB3B"
+      data-testid="child__loader"
+      opacity="0.7"
+      size="48"
+      speed="2"
+    >
+      <div />
+      <div />
+    </div>
+  </div>
+</div>
+`;
