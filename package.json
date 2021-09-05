@@ -4,6 +4,14 @@
   "description": "",
   "keywords": [],
   "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "test:ci": "npm test -- --coverage",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.ts src/**/*.tsx"
+  },
   "dependencies": {
     "@types/styled-system": "5.1.9",
     "@types/styled-system__css": "5.0.12",
@@ -14,6 +22,12 @@
     "styled-minimal": "1.0.0-5"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.14.5",
+    "@testing-library/dom": "^8.2.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@types/enzyme": "^3.10.9",
+    "@types/jest": "^27.0.1",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
@@ -26,12 +40,6 @@
     "eslint-plugin-react": "^7.25.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "typescript": "3.8.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
   },
   "browserslist": [
     ">0.2%",
