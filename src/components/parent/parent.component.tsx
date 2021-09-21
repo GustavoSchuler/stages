@@ -23,8 +23,8 @@ const Parent: React.FC = () => {
             color={step.value}
             duration={durations[step.key]}
             onLoaded={() => {
-              setLoaded(index+1);
               setTimer(timer+durations[step.key]);
+              setLoaded(index+1);
             }}
           />
           : null
